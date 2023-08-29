@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Counter Example</title>
+</head>
+
+<body>
+    <h1>Welcome to Our Website</h1>
+    <p>Explore our content!</p>
+
+    <p id="visitorCount">Total Visitors: 0</p>
+
+    <script>// Function to update and display visitor count
+        function updateVisitorCount() {
+            let visitorCount = localStorage.getItem("visitorCount") || 0;
+            visitorCount = parseInt(visitorCount, 10) + 1;
+            localStorage.setItem("visitorCount", visitorCount);
+
+            const countElement = document.getElementById("visitorCount");
+            if (countElement) {
+                countElement.textContent = `Total Visitors: ${visitorCount}`;
+            }
+        }
+
+        // Check if the DOM is ready
+        document.addEventListener("DOMContentLoaded", () => {
+            updateVisitorCount();
+        });
+    </script>
+</body>
+
+</html>
